@@ -1,48 +1,42 @@
-document.querySelector('.toggle-button').addEventListener('click', function() {
-  document.getElementById('navbar').classList.toggle('open');
-});
+$(document).ready(function(){
+    var slideIndex = 0;
+    var slides = $(".slides");
+    var dots = $(".dot");
+    var slideDuration = 500; 
 
-$(document).ready(function() {
-  let $carouselInner = $('.carousel-inner');
-  let $carouselItems = $('.carousel-item');
-  let totalItems = $carouselItems.length;
-  let currentIndex = 0;
- 
+    function showSlides() {
+        slides.fadeOut(slideDuration);
+        dots.removeClass("active");
+        setTimeout(function(){
+            slides.eq(slideIndex).fadeIn(slideDuration);
+            dots.eq(slideIndex).addClass("active");
+        }, slideDuration);
+    }
 
-  function showSlide(index) {
-      if (index >= totalItems) {
-          currentIndex = 1;
-          $carouselInner.css('transition', 'none');
-          $carouselInner.css('transform', 'translateX(0)');
-          setTimeout(function() {
-              $carouselInner.css('transition', 'transform 0.5s ease');
-              $carouselInner.css('transform', 'translateX(' + (-currentIndex * 100) + '%)');
-          }, 20);
-      } else if (index < 0) {
-          currentIndex = totalItems - 2;
-          $carouselInner.css('transition', 'none');
-          $carouselInner.css('transform', 'translateX(' + (-(totalItems - 1) * 100) + '%)');
-          setTimeout(function() {
-              $carouselInner.css('transition', 'transform 0.5s ease');
-              $carouselInner.css('transform', 'translateX(' + (-currentIndex * 100) + '%)');
-          }, 20);
-      } else {
-          currentIndex = index;
-          $carouselInner.css('transform', 'translateX(' + (-currentIndex * 100) + '%)');
-      }
-  }
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        showSlides();
+    }
 
-  $('.next').click(function() {
-      showSlide(currentIndex + 1);
-  });
+    function prevSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+        showSlides();
+    }
 
-  $('.prev').click(function() {
-      showSlide(currentIndex - 1);
-  });
+    $(".next").click(function(){
+        nextSlide();
+    });
 
-  setInterval(function() {
-      showSlide(currentIndex + 1);
-  }, autoplayInterval);
+    $(".prev").click(function(){
+        prevSlide();
+    });
 
-  showSlide(currentIndex);
+  
+    showSlides();
 });
