@@ -164,7 +164,7 @@ body{
     
 }
 
-.middle-section p{
+.midSec p{
     width: 76%;
     color: #061C2C;
     
@@ -195,7 +195,7 @@ body{
    
 }
 
-.last-section {
+.lastSec {
     display: flex;
     justify-content: space-between;
     padding: 0px 146px 15px;
@@ -271,7 +271,7 @@ span{
     font-size: 2em;
     color: #1E7BAE;
 }
-.final-section{
+.finalSec{
     padding: 0px 155px 15px; ;
 
 
@@ -323,11 +323,11 @@ span{
     .nav-links.show {
         display: flex;
     }
-    .middle-section .text, .middle-section .image {
+    .midSec .text, .middle-section .image {
         width: 100%;
         text-align: center;
     }
-    .last-section {
+    .lastSec {
         flex-direction: column;
         align-items: center;
     }
