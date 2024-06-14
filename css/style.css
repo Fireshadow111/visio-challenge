@@ -123,7 +123,7 @@ body{
     width: 90px;
     height: 118px;
     display: block;
-    background-image: url(https://i.ibb.co/zhPPK5v/slide.png);
+    background-image: url(https://cdn-images.imagevenue.com/97/72/fb/ME18HVBM_o.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right center;
@@ -133,7 +133,7 @@ body{
     cursor: pointer;
 }
 
-.indicators {
+.circles {
     position: absolute;
     bottom: 11px;
     right: 60px;
@@ -141,7 +141,7 @@ body{
 }
 
 
-.dot {
+.ci {
     background-image: url(https://i.ibb.co/SNHw5WB/dot.png);
     width: 18px;
     height: 22px;
@@ -157,7 +157,7 @@ body{
 }
 
 
-.dot.active {
+.ci.active {
    
     filter: grayscale(100%); 
     opacity: 0.5; 
