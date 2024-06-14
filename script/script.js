@@ -2,31 +2,35 @@ $(document).ready(function(){
     var slideIndex = 0;
     var slides = $(".slides");
     var dots = $(".dot");
-    var slideDuration = 500; 
 
     function showSlides() {
-        slides.fadeOut(slideDuration);
+        slides.removeClass("active");
         dots.removeClass("active");
-        setTimeout(function(){
-            slides.eq(slideIndex).fadeIn(slideDuration);
-            dots.eq(slideIndex).addClass("active");
-        }, slideDuration);
+
+        slides.eq(slideIndex).addClass("active").css("transform", "translateX(0)");
+        dots.eq(slideIndex).addClass("active");
     }
 
     function nextSlide() {
+        var currentSlide = slideIndex;
         slideIndex++;
         if (slideIndex >= slides.length) {
             slideIndex = 0;
         }
-        showSlides();
+        slides.eq(currentSlide).css("transform", "translateX(-100%)");
+        slides.eq(slideIndex).css("transform", "translateX(100%)");
+        setTimeout(showSlides, 50); // Small delay to ensure transition effect
     }
 
     function prevSlide() {
+        var currentSlide = slideIndex;
         slideIndex--;
         if (slideIndex < 0) {
             slideIndex = slides.length - 1;
         }
-        showSlides();
+        slides.eq(currentSlide).css("transform", "translateX(100%)");
+        slides.eq(slideIndex).css("transform", "translateX(-100%)");
+        setTimeout(showSlides, 50); // Small delay to ensure transition effect
     }
 
     $(".next").click(function(){
@@ -37,6 +41,6 @@ $(document).ready(function(){
         prevSlide();
     });
 
-  
-    showSlides();
+    slides.eq(slideIndex).addClass("active");
+    dots.eq(slideIndex).addClass("active");
 });
