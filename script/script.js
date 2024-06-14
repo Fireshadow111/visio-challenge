@@ -1,14 +1,14 @@
 $(document).ready(function(){
-    var slideIndex = 0;
-    var slides = $(".slides");
-    var dots = $(".dot");
+    let slideIndex = 0;
+    let slides = $(".slides");
+    let ci = $(".ci");
 
     function showSlides() {
         slides.removeClass("active");
-        dots.removeClass("active");
+        ci.removeClass("active");
 
         slides.eq(slideIndex).addClass("active").css("transform", "translateX(0)");
-        dots.eq(slideIndex).addClass("active");
+        ci.eq(slideIndex).addClass("active");
     }
 
     function nextSlide() {
@@ -19,7 +19,7 @@ $(document).ready(function(){
         }
         slides.eq(currentSlide).css("transform", "translateX(-100%)");
         slides.eq(slideIndex).css("transform", "translateX(100%)");
-        setTimeout(showSlides, 50); // Small delay to ensure transition effect
+        setTimeout(showSlides, 50); 
     }
 
     function prevSlide() {
@@ -30,7 +30,7 @@ $(document).ready(function(){
         }
         slides.eq(currentSlide).css("transform", "translateX(100%)");
         slides.eq(slideIndex).css("transform", "translateX(-100%)");
-        setTimeout(showSlides, 50); // Small delay to ensure transition effect
+        setTimeout(showSlides, 50); 
     }
 
     $(".next").click(function(){
@@ -42,5 +42,5 @@ $(document).ready(function(){
     });
 
     slides.eq(slideIndex).addClass("active");
-    dots.eq(slideIndex).addClass("active");
+    ci.eq(slideIndex).addClass("active");
 });
