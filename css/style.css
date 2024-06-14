@@ -347,3 +347,16 @@ span{
     }
 }
 
+
+
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+    }
+    .text {
+        order: 1; 
+    }
+    .image {
+        order: 2; 
+    }
+}
